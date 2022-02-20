@@ -98,5 +98,13 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
-  "references": []                                      // * Any project that is referenced must itself have a `references` array (which may be empty).
+  "references": 
+  [
+    {
+      "path": "../booking.core"
+    },
+    {
+      "path": "../booking.persistance"
+    }
+  ]
 }

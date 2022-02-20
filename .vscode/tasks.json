@@ -1,0 +1,58 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "typescript",
+			"tsconfig": "booking.core/tsconfig.json",
+			"option": "watch",
+			"problemMatcher": [
+				"$tsc-watch"
+			],
+			"group": "build",
+			"label": "tsc: watch - booking.core/tsconfig.json"
+		},
+		{
+			"type": "typescript",
+			"tsconfig": "booking.frontend.react/tsconfig.json",
+			"option": "watch",
+			"problemMatcher": [
+				"$tsc-watch"
+			],
+			"group": "build",
+			"label": "tsc: watch - booking.frontend.react/tsconfig.json"
+		},
+		{
+			"type": "typescript",
+			"tsconfig": "booking.persistance.core/tsconfig.json",
+			"option": "watch",
+			"problemMatcher": [
+				"$tsc-watch"
+			],
+			"group": "build",
+			"label": "tsc: watch - booking.persistance.core/tsconfig.json"
+		},
+		{
+			"type": "typescript",
+			"tsconfig": "booking.persistance/tsconfig.json",
+			"option": "watch",
+			"problemMatcher": [
+				"$tsc-watch"
+			],
+			"group": "build",
+			"label": "tsc: watch - booking.persistance/tsconfig.json"
+		},
+		{
+			"type": "typescript",
+			"tsconfig": "Booking/booking.persistance.api/tsconfig.json",
+			"option": "watch",
+			"problemMatcher": [
+				"$tsc-watch"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"label": "tsc: watch - Booking/booking.persistance.api/tsconfig.json"
+		}
+	]
+}
