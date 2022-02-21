@@ -5,7 +5,7 @@ import { Booking } from "./Booking";
 
 @Entity()
 export class Room implements IRoom 
-{   
+{
     @OneToMany(() => Booking, booking => booking.room, {
         eager: true
     })
@@ -19,5 +19,9 @@ export class Room implements IRoom
     
     @Column()
     public version: number;    
+
+    @Column()
+    public title: string;   
+
     
 }

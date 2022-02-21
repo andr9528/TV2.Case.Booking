@@ -19,10 +19,22 @@ export class Booking implements IBooking
     public room: IRoom;
 
     @Column()
-    public from: Date;
+    private _from: Date;
+    public get from(): Date {
+        return this._from;
+    }
+    public set from(value: Date) {
+        if (this._to == undefined || value.toISOString < this._to.toISOString) this._from = value;
+    }
     
     @Column()
-    public to: Date;
+    private _to: Date;
+    public get to(): Date {
+        return this._to;
+    }
+    public set to(value: Date) {
+        if (this._from == undefined || value.toISOString > this._from.toISOString) this._to = value;
+    }
        
     @PrimaryGeneratedColumn()
     public id: number;
@@ -30,7 +42,10 @@ export class Booking implements IBooking
     @Column()
     public version: number;
     
+    //https://programmingwithswift.com/how-to-compare-dates-with-typescript/
     public checkNoOverlab(otherBooking: IBooking): boolean {
-        throw new Error("Method not implemented.");
+        if (otherBooking.to.toISOString() <= this.from.toISOString()) return true;
+        if (otherBooking.from.toISOString() >= this.to.toISOString()) return true;
+        return false;
     }
 }

@@ -5,8 +5,7 @@
     "typescript": "^4.5.5"
   },
   "main": "build/src/server.js",
-  "scripts": 
-  {
+  "scripts": {
     "start": "node build/src/server.js"
   }
 }

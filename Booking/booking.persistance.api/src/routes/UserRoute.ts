@@ -1,15 +1,14 @@
 import express, { Router } from "express";
 import { IUserController } from "../../../booking.core/src/controllers/IUserController";
 import { UserController } from "../controllers/UserController";
-import { User } from '../../../booking.persistance/build/src/entity/User';
-import { BookingHandler } from '../../../booking.persistance/build/src/Handler';
+import { User } from '../../../booking.persistance/src/entity/User';
 
 const router = express.Router();
-const controller : IUserController = new UserController(new BookingHandler())
+const controller : IUserController = new UserController();
 
 router.get('/user/', (req, res) => 
 {    
-    res.send('Hello from express and typescript - in user');
+    //res.send('Hello from express and typescript - in user');
 });
 
 router.post('/user/', (req, res) => 
@@ -23,6 +22,16 @@ router.post('/user/', (req, res) =>
 
     if (success) res.send('Succesfully added user \'' + user.name + '\'');
     else res.send('Failed to add user \'' + user.name + '\'');
-})
+});
+
+router.put('/user/', (req, res) => 
+{
+
+});
+
+router.delete('/user/', (req, res) => 
+{
+
+});
 
 export default router;
