@@ -9,6 +9,20 @@ const controller : IBookingController = new BookingController();
 router.get('/booking/', (req, res) => 
 {    
     //res.send('Hello from express and typescript - in user');
+    let query = req.query;
+    let booking = query as unknown as Booking;
+
+    let retrieved = controller.Get(booking);
+    if (retrieved.length >0) 
+    {
+        res.status(200);
+        res.json(retrieved);
+    }
+    else 
+    {
+        res.status(400);
+        res.send("Failed to find any bookings from specified query");
+    }
 });
 
 router.post('/booking/', (req, res) => 
@@ -20,18 +34,28 @@ router.post('/booking/', (req, res) =>
 
     let success = controller.Post(booking);
 
-    if (success) res.send('Succesfully added booking');
-    else res.send('Failed to add booking');
+    if (success) 
+    {
+        res.status(200);
+        res.send('Succesfully added booking');
+    }
+    else 
+    {
+        res.status(400);
+        res.send('Failed to add booking');
+    }
 });
 
 router.put('/booking/', (req, res) => 
 {
-
+    res.status(501);
+    res.send('Not implemented, yet');
 });
 
 router.delete('/booking/', (req, res) => 
 {
-
+    res.status(501);
+    res.send('Not implemented, yet');
 });
 
 export default router;

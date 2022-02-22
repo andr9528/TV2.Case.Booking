@@ -10,7 +10,9 @@ class UserController {
         this.handler = new BookingHandler_1.BookingHandler();
     }
     Get(predicate) {
-        throw new Error('Method not implemented.');
+        let result;
+        result = this.handler.GetMultiple(predicate);
+        return result;
     }
     Post(entity) {
         let result = this.handler.Create(entity);

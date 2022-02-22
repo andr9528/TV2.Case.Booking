@@ -9,6 +9,8 @@ const router = express_1.default.Router();
 const controller = new UserController_1.UserController();
 router.get('/user/', (req, res) => {
     //res.send('Hello from express and typescript - in user');
+    let query = req.query;
+    query;
 });
 router.post('/user/', (req, res) => {
     // I expect that any 'body' given, is going to be a Json body.

@@ -10,3 +10,5 @@ Repository for case given by TV2, in connection with job interview.
                 - My choice: sqlite3 
 - Server
     - Express
+- Client
+    - Axios

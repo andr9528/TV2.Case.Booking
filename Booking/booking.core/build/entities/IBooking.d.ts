@@ -3,7 +3,9 @@ import { IRoom } from "./IRoom";
 import { IUser } from "./IUser";
 export interface IBooking extends IEntity {
     user: IUser;
+    userId: number;
     room: IRoom;
+    roomId: number;
     from: Date;
     to: Date;
     /**

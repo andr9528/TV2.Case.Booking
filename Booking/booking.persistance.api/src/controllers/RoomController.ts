@@ -7,7 +7,9 @@ export class RoomController implements IRoomController
 {
     Get(predicate: IRoom): IRoom[] 
     {
-        throw new Error('Method not implemented.');
+        let result : IRoom[];
+        result = this.handler.GetMultiple(predicate);
+        return result;
     }
     Post(entity: IRoom): boolean 
     {

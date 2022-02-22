@@ -8,7 +8,9 @@ export class BookingController implements IBookingController
 {
     Get(predicate: IBooking): IBooking[] 
     {
-        throw new Error('Method not implemented.');
+        let result : IBooking[];
+        result = this.handler.GetMultiple(predicate);
+        return result;
     }
     Post(entity: IBooking): boolean 
     {

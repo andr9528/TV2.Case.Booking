@@ -7,7 +7,9 @@ export class UserController implements IUserController
 {
     Get(predicate: IUser): IUser[] 
     {
-        throw new Error('Method not implemented.');
+        let result : IUser[];
+        result = this.handler.GetMultiple(predicate);
+        return result;
     }
     Post(entity: IUser): boolean 
     {

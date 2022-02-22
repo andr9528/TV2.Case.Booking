@@ -8,7 +8,21 @@ const controller : IRoomController = new RoomController();
 
 router.get('/room/', (req, res) => 
 {    
-    //res.send('Hello from express and typescript - in user');
+    //res.send('Hello from express and typescript - in room');
+    let query = req.query;
+    let room = query as unknown as Room;
+
+    let retrieved = controller.Get(room);
+    if (retrieved.length >0) 
+    {
+        res.status(200);
+        res.json(retrieved);
+    }
+    else 
+    {
+        res.status(400);
+        res.send("Failed to find any rooms from specified query");
+    }
 });
 
 router.post('/room/', (req, res) => 
@@ -20,18 +34,28 @@ router.post('/room/', (req, res) =>
 
     let success = controller.Post(room);
 
-    if (success) res.send('Succesfully added room \'' + room.title + '\'');
-    else res.send('Failed to add room \'' + room.title + '\'');
+    if (success) 
+    {
+        res.status(200);
+        res.send('Succesfully added room \'' + room.title + '\'');
+    }
+    else  
+    {
+        res.status(400);
+        res.send('Failed to add room \'' + room.title + '\'');
+    }
 });
 
 router.put('/room/', (req, res) => 
 {
-
+    res.status(501);
+    res.send('Not implemented, yet');
 });
 
 router.delete('/room/', (req, res) => 
 {
-
+    res.status(501);
+    res.send('Not implemented, yet');
 });
 
 export default router;
