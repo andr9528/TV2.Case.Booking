@@ -23,5 +23,7 @@ export class Room implements IRoom
     @Column()
     public title: string;   
 
+    @Column()
+    public location: string;
     
 }

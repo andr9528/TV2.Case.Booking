@@ -8,15 +8,18 @@ export class Room implements IRoom
     title: string;
     id: number;
     version: number;
+    location: string;
+
     
 
     /**
      *
      */
-    constructor(cap : number, title : string, id : number = 0, version : number = 0) 
+    constructor(cap : number, title : string, location : string, id : number = 0, version : number = 0) 
     {
         this.capacity = cap;
         this.title = title;
+        this.location = location
         this.id = id;
         this.version = version;    
     }

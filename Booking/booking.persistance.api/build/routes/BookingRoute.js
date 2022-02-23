@@ -9,6 +9,17 @@ const router = express_1.default.Router();
 const controller = new BookingController_1.BookingController();
 router.get('/booking/', (req, res) => {
     //res.send('Hello from express and typescript - in user');
+    let query = req.query;
+    let booking = query;
+    let retrieved = controller.Get(booking);
+    if (retrieved.length > 0) {
+        res.status(200);
+        res.json(retrieved);
+    }
+    else {
+        res.status(400);
+        res.send("Failed to find any bookings from specified query");
+    }
 });
 router.post('/booking/', (req, res) => {
     // I expect that any 'body' given, is going to be a Json body.
@@ -16,13 +27,21 @@ router.post('/booking/', (req, res) => {
     let booking = JSON.parse(body);
     //let user = <User>Object.assign(new User, body);
     let success = controller.Post(booking);
-    if (success)
+    if (success) {
+        res.status(200);
         res.send('Succesfully added booking');
-    else
+    }
+    else {
+        res.status(400);
         res.send('Failed to add booking');
+    }
 });
 router.put('/booking/', (req, res) => {
+    res.status(501);
+    res.send('Not implemented, yet');
 });
 router.delete('/booking/', (req, res) => {
+    res.status(501);
+    res.send('Not implemented, yet');
 });
 exports.default = router;

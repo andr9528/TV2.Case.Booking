@@ -10,7 +10,16 @@ const controller = new UserController_1.UserController();
 router.get('/user/', (req, res) => {
     //res.send('Hello from express and typescript - in user');
     let query = req.query;
-    query;
+    let user = query;
+    let retrieved = controller.Get(user);
+    if (retrieved.length > 0) {
+        res.status(200);
+        res.json(retrieved);
+    }
+    else {
+        res.status(400);
+        res.send("Failed to find any users from specified query");
+    }
 });
 router.post('/user/', (req, res) => {
     // I expect that any 'body' given, is going to be a Json body.
@@ -18,13 +27,21 @@ router.post('/user/', (req, res) => {
     let user = JSON.parse(body);
     //let user = <User>Object.assign(new User, body);
     let success = controller.Post(user);
-    if (success)
+    if (success) {
+        res.status(200);
         res.send('Succesfully added user \'' + user.name + '\'');
-    else
+    }
+    else {
+        res.status(400);
         res.send('Failed to add user \'' + user.name + '\'');
+    }
 });
 router.put('/user/', (req, res) => {
+    res.status(501);
+    res.send('Not implemented, yet');
 });
 router.delete('/user/', (req, res) => {
+    res.status(501);
+    res.send('Not implemented, yet');
 });
 exports.default = router;

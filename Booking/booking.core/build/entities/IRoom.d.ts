@@ -4,5 +4,6 @@ export interface IRoom extends IEntity {
     bookings: IBooking[];
     capacity: number;
     title: string;
+    location: string;
 }
 //# sourceMappingURL=IRoom.d.ts.map
