@@ -3,12 +3,14 @@ import { IRoom } from '../../../booking.core/src/entities/IRoom';
 
 export class Room implements IRoom 
 {
-    bookings: IBooking[] = new Array<IBooking>();
-    capacity: number;
-    title: string;
-    id: number;
-    version: number;
-    location: string;
+    public CLASSNAME: string;
+
+    public bookings: IBooking[] = new Array<IBooking>();
+    public capacity: number;
+    public title: string;
+    public id: number;
+    public version: number;
+    public location: string;
 
     
 
@@ -21,6 +23,8 @@ export class Room implements IRoom
         this.title = title;
         this.location = location
         this.id = id;
-        this.version = version;    
+        this.version = version;
+        
+        this.CLASSNAME = "Room";
     }
 }

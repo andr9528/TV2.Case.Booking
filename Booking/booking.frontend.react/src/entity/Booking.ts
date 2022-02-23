@@ -3,6 +3,8 @@ import { IRoom } from '../../../booking.core/src/entities/IRoom';
 import { IUser } from '../../../booking.core/src/entities/IUser';
 export class Booking implements IBooking 
 {
+    public CLASSNAME: string;
+
     public user: IUser;    
     public room: IRoom;
 
@@ -42,6 +44,8 @@ export class Booking implements IBooking
         this.version = version;         
         this.to = to;
         this.from = from;
+
+        this.CLASSNAME = "Booking";
     }
    
 

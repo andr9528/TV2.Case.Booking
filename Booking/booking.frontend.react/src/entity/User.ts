@@ -4,6 +4,8 @@ import { IUser } from '../../../booking.core/src/entities/IUser';
 
 export class User implements IUser 
 {
+    public CLASSNAME: string;
+
     public bookings: IBooking[] = new Array<IBooking>();
     public name: string;
     public id: number;
@@ -14,6 +16,8 @@ export class User implements IUser
         this.name = name;
         this.id = id;
         this.version = version;    
+
+        this.CLASSNAME = "User";
     }
 
     public getCommonRooms(): IRoom[] 

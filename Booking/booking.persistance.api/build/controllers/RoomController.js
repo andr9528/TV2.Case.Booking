@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomController = void 0;
-const BookingHandler_1 = require("../../../booking.persistance/src/BookingHandler");
+const BookingHandler_1 = require("../persistance/BookingHandler");
 class RoomController {
     /**
      *

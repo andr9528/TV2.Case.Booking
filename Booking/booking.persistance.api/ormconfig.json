@@ -1,0 +1,20 @@
+{
+   "type": "sqlite",
+   "database": "database.sqlite",
+   "synchronize": true,
+   "logging": true,
+   "entities": [
+      "build/persistance/entity/**/*.js"
+   ],
+   "migrations": [
+      "build/persistance/migration/**/*.js"
+   ],
+   "subscribers": [
+      "build/persistance/subscriber/**/*.js"
+   ],
+   "cli": {
+      "entitiesDir": "build/persistance/entity",
+      "migrationsDir": "build/persistance/migration",
+      "subscribersDir": "build/persistance/subscriber"
+   }   
+}

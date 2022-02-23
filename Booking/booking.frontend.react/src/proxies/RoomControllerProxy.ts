@@ -23,7 +23,7 @@ export class RoomControllerProxy implements IRoomController
         if (predicate.version !== undefined) queryParameters.push("version=" + predicate.version.toString());
 
         let joined = queryParameters.join("&");
-        let path = "?q=" + joined;
+        let path = "?" + joined;
 
         this.instance.get("booking" + path).then(response => 
             {

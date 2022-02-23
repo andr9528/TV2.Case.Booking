@@ -1,7 +1,7 @@
+import { BookingHandler } from '../persistance/BookingHandler';
 import { IUserController } from '../../../booking.core/src/controllers/IUserController';
 import { IUser } from '../../../booking.core/src/entities/IUser';
 import { IHandler } from '../../../booking.persistance.core/src/IHandler';
-import { BookingHandler } from '../../../booking.persistance/src/BookingHandler';
 
 export class UserController implements IUserController 
 {

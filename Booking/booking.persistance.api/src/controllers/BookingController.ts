@@ -1,7 +1,7 @@
+import { BookingHandler } from '../persistance/BookingHandler';
 import { IBookingController } from '../../../booking.core/src/controllers/IBookingController';
 import { IBooking } from '../../../booking.core/src/entities/IBooking';
 import { IHandler } from '../../../booking.persistance.core/src/IHandler';
-import { BookingHandler } from '../../../booking.persistance/src/BookingHandler';
 
 
 export class BookingController implements IBookingController 

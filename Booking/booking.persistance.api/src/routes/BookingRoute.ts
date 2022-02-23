@@ -1,16 +1,18 @@
 import express, { Router } from "express";
+import { Booking } from "../persistance/entity/Booking";
 import { IBookingController } from "../../../booking.core/src/controllers/IBookingController";
 import { BookingController } from '../controllers/BookingController';
-import { Booking } from '../../../booking.persistance/src/entity/Booking';
 
 const router = express.Router();
 const controller : IBookingController = new BookingController();
 
-router.get('/booking/', (req, res) => 
+router.get('/booking', (req, res) => 
 {    
     //res.send('Hello from express and typescript - in user');
     let query = req.query;
-    let booking = query as unknown as Booking;
+    console.log("Query ->");
+    console.log(query);
+    let booking = <Booking>Object.assign(new Booking, query);
 
     let retrieved = controller.Get(booking);
     if (retrieved.length >0) 
@@ -25,12 +27,15 @@ router.get('/booking/', (req, res) =>
     }
 });
 
-router.post('/booking/', (req, res) => 
+router.post('/booking', (req, res) => 
 {
     // I expect that any 'body' given, is going to be a Json body.
-    let body = <string>req.body;
-    let booking = <Booking>JSON.parse(body);
-    //let user = <User>Object.assign(new User, body);
+    let body = req.body;
+    console.log("Body ->");
+    console.log(body);
+    let booking = <Booking>Object.assign(new Booking, body);
+    console.log("User ->")
+    console.log(booking)
 
     let success = controller.Post(booking);
 

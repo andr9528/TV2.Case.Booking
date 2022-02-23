@@ -28,7 +28,7 @@ export class BookingControllerProxy implements IBookingController
         if (predicate.roomId !== undefined) queryParameters.push("roomId=" + predicate.roomId.toString());
 
         let joined = queryParameters.join("&");
-        let path = "?q=" + joined;
+        let path = "?" + joined;
 
         this.instance.get("booking" + path).then(response => 
             {

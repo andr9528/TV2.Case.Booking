@@ -1,16 +1,18 @@
 import express, { Router } from "express";
+import { Room } from '../persistance/entity/Room';
 import { IRoomController } from "../../../booking.core/src/controllers/IRoomController";
-import { Room } from "../../../booking.persistance/src/entity/Room";
 import { RoomController } from "../controllers/RoomController";
 
 const router = express.Router();
 const controller : IRoomController = new RoomController();
 
-router.get('/room/', (req, res) => 
+router.get('/room', (req, res) => 
 {    
     //res.send('Hello from express and typescript - in room');
     let query = req.query;
-    let room = query as unknown as Room;
+    console.log("Query ->");
+    console.log(query);
+    let room = <Room>Object.assign(new Room, query);
 
     let retrieved = controller.Get(room);
     if (retrieved.length >0) 
@@ -25,12 +27,15 @@ router.get('/room/', (req, res) =>
     }
 });
 
-router.post('/room/', (req, res) => 
+router.post('/room', (req, res) => 
 {
     // I expect that any 'body' given, is going to be a Json body.
-    let body = <string>req.body;
-    let room = <Room>JSON.parse(body);
-    //let user = <User>Object.assign(new User, body);
+    let body = req.body;
+    console.log("Body ->");
+    console.log(body);
+    let room = <Room>Object.assign(new Room, body);
+    console.log("User ->")
+    console.log(Room)
 
     let success = controller.Post(room);
 
